@@ -3,6 +3,8 @@ package org.zerock.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.zerock.mapper.BoardMapper;
+import org.zerock.mapper.ReplyMapper;
 import org.zerock.mapper.Sample1Mapper;
 import org.zerock.mapper.Sample2Mapper;
 
@@ -13,6 +15,12 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class SampleTxServiceImpl implements SampleTxService {
 
+	@Setter(onMethod_ = @Autowired)
+	private ReplyMapper mapper;
+	
+	@Setter(onMethod_ = @Autowired)
+	private BoardMapper boardMapper;
+	
 	@Setter(onMethod_ = { @Autowired })
 	private Sample1Mapper mapper1;
 	
