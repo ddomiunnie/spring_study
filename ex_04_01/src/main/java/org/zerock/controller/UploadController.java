@@ -168,13 +168,13 @@ public class UploadController {
 			HttpHeaders header = new HttpHeaders();
 			
 			header.add("Content-Type", Files.probeContentType(file.toPath()));
-			result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file),header,HttpStatus.OK);
+			result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file),
+					header, HttpStatus.OK);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
 	@GetMapping(value = "/download", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	@ResponseBody
 	public ResponseEntity<Resource> downloadFile(@RequestHeader("User-Agent") String userAgent, String fileName) {
