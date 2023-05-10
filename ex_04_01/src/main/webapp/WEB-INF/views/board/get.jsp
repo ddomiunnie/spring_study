@@ -240,8 +240,7 @@
 
 							console.log("show list " + page);
 
-							replyService
-									.getList(
+							replyService.getList(
 											{
 												bno : bnoValue,
 												page : page || 1
